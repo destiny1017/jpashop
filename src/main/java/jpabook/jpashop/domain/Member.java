@@ -1,19 +1,17 @@
-package jpabook.jpashop;
+package jpabook.jpashop.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import jpabook.jpashop.domain.items.Address;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-@Getter
-@Setter
 public class Member {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
-    private String userName;
+    private String name;
+    private Address address;
+
 }
