@@ -1,21 +1,24 @@
 package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.enums.DeliveryStatus;
-import jpabook.jpashop.domain.items.Address;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class Delivery {
 
     @Id @GeneratedValue
     private Long id;
 
+    @OneToOne(mappedBy = "delivery")
     private Order order;
 
     private Address address;
 
+    @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
 }
