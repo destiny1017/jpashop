@@ -85,10 +85,18 @@ class OrderServiceTest {
     @Test
     public void 상품주문취소() throws Exception {
         //given
+        Member member = createMember();
+        Item item = createBook();
+
+        int orderCnt = 4;
+        Long orderId = orderService.order(member.getId(), item.getId(), orderCnt);
 
         //when
+        orderService.orderCancel(orderId);
 
         //then
-
+        Order order = em.find(Order.class, orderId);
+        assertEquals("주문 취소 시 상태는 CANCEL이어야함", order.getStatus(), OrderStatus.CANCEL);
+        assertEquals("주문이 취소된 상품은 그만큼 재고가 증가해야함", item.getStockQuantity(), 10);
     }
 }
