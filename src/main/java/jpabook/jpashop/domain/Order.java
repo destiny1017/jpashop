@@ -31,7 +31,7 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    private LocalDateTime date;
+    private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
@@ -66,7 +66,7 @@ public class Order {
             order.addOrderItems(orderItem);
         }
         order.setStatus(OrderStatus.ORDER);
-        order.setDate(LocalDateTime.now());
+        order.setOrderDate(LocalDateTime.now());
         return order;
     }
 
