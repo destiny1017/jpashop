@@ -48,7 +48,7 @@ public class InitDB {
             Book book2 = createBook("SPRING BOOK2", 40000, 100);
 
             OrderItem orderItem1 = OrderItem.createOrderItem(book1, 20000, 3);
-            OrderItem orderItem2 = OrderItem.createOrderItem(book1, 40000, 4);
+            OrderItem orderItem2 = OrderItem.createOrderItem(book2, 40000, 4);
 
             Delivery delivery = new Delivery();
             delivery.setAddress(member.getAddress());
